@@ -1,0 +1,63 @@
+{
+  "expo": {
+    "name": "Swara",
+    "slug": "swara-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "backgroundColor": "#1C0F3A"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.swara.app",
+      "infoPlist": {
+        "NSMicrophoneUsageDescription": "Swara needs microphone access to record your voice messages.",
+        "NSDocumentsFolderUsageDescription": "Swara needs access to pick voice recordings."
+      },
+      "runtimeVersion": {
+        "policy": "appVersion"
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#1C0F3A"
+      },
+      "package": "com.swara.app",
+      "permissions": [
+        "RECORD_AUDIO",
+        "READ_EXTERNAL_STORAGE",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.MODIFY_AUDIO_SETTINGS",
+        "RECORD_AUDIO",
+        "READ_EXTERNAL_STORAGE",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.MODIFY_AUDIO_SETTINGS"
+      ],
+      "runtimeVersion": "1.0.0"
+    },
+    "web": {
+      "bundler": "metro",
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-av",
+        {
+          "microphonePermission": "Swara needs microphone access to record your voice."
+        }
+      ],
+      "expo-document-picker"
+    ],
+    "extra": {
+      "defaultApiUrl": "https://swara-backend-nxmk.onrender.com",
+      "eas": {
+        "projectId": "f78776fe-7b0c-4a12-8786-144fa16ea7c5"
+      }
+    },
+    "updates": {
+      "url": "https://u.expo.dev/f78776fe-7b0c-4a12-8786-144fa16ea7c5"
+    }
+  }
+}

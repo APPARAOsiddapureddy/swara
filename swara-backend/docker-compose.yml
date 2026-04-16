@@ -1,0 +1,17 @@
+# Local Postgres for Swara (avoids clashing with a system Postgres on 5432)
+# From swara-backend: npm run db:up
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: swara
+      POSTGRES_PASSWORD: swara_dev
+      POSTGRES_DB: swara_db
+    ports:
+      # Use 5434 if something else already listens on 5433 on your machine
+      - '5434:5432'
+    volumes:
+      - swara_pg_data:/var/lib/postgresql/data
+
+volumes:
+  swara_pg_data:

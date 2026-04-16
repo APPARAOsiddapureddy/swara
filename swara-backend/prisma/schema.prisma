@@ -1,0 +1,112 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum SubscriptionTier {
+  free
+  premium
+}
+
+enum DeepeningStage {
+  FOUNDATION
+  RECOGNITION
+  PERSONALITY
+  FAMILIARITY
+  LIVING
+}
+
+model User {
+  id               String           @id @default(cuid())
+  name             String
+  phone            String           @unique
+  passwordHash     String
+  subscriptionTier SubscriptionTier @default(free)
+  createdAt        DateTime         @default(now())
+  lovedOnes        LovedOne[]
+  conversations    Conversation[]
+  blessings        Blessing[]
+  abuseReports     AbuseReport[]
+}
+
+model LovedOne {
+  id                  String            @id @default(cuid())
+  userId              String
+  user                User              @relation(fields: [userId], references: [id])
+  name                String
+  relation            String
+  nickname            String
+  dialect             String
+  values              String[]
+  supportStyle        String
+  phrases             String[]
+  beliefText          String
+  memoryText          String
+  voiceId             String?
+  voiceAudioUrl       String?
+  systemPrompt        String
+  createdAt           DateTime          @default(now())
+  isDeceased          Boolean?
+  consentType         String?
+  voiceAccepted       Boolean?
+  profileComplete     Boolean           @default(true)
+  totalConversations  Int               @default(0)
+  deepeningStage      DeepeningStage    @default(FOUNDATION)
+  conversations       Conversation[]
+  memorySummaries     MemorySummary[]
+  blessings           Blessing[]
+  abuseReports        AbuseReport[]
+}
+
+model MemorySummary {
+  id                 String   @id @default(cuid())
+  lovedOneId         String
+  lovedOne           LovedOne @relation(fields: [lovedOneId], references: [id], onDelete: Cascade)
+  summaryText        String
+  conversationStartId String?
+  conversationEndId   String?
+  themes              String[]
+  createdAt           DateTime @default(now())
+}
+
+model Conversation {
+  id           String   @id @default(cuid())
+  userId       String
+  lovedOneId   String
+  userMessage  String
+  aiResponse   String
+  audioUrl     String?
+  topicTag     String?
+  isConfidence Boolean  @default(false)
+  createdAt    DateTime @default(now())
+  user         User     @relation(fields: [userId], references: [id])
+  lovedOne     LovedOne @relation(fields: [lovedOneId], references: [id])
+}
+
+model Blessing {
+  id          String    @id @default(cuid())
+  userId      String
+  lovedOneId  String?
+  lovedOne    LovedOne? @relation(fields: [lovedOneId], references: [id])
+  title       String
+  transcript  String
+  audioUrl    String
+  createdAt   DateTime  @default(now())
+  user        User      @relation(fields: [userId], references: [id])
+}
+
+model AbuseReport {
+  id        String   @id @default(cuid())
+  userId    String
+  lovedOneId String?
+  message   String
+  contact   String?
+  createdAt DateTime @default(now())
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  lovedOne  LovedOne? @relation(fields: [lovedOneId], references: [id], onDelete: SetNull)
+}

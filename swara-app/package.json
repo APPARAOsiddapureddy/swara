@@ -1,0 +1,48 @@
+{
+  "name": "swara-app",
+  "version": "1.0.0",
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "start": "CI=false expo start --port 8081",
+    "start:clean": "CI=false EXPO_NO_NATIVE_MODULES_CACHE=1 expo start --port 8081 --clear",
+    "android": "CI=false expo start --android --port 8081",
+    "ios": "CI=false expo start --ios --port 8081",
+    "web": "CI=false expo start --web --port 8081",
+    "android:apk": "cd android && ./gradlew assembleRelease",
+    "android:apk:debug": "cd android && ./gradlew assembleDebug",
+    "eas:apk": "eas build --platform android --profile preview"
+  },
+  "dependencies": {
+    "@expo/metro-runtime": "~6.1.2",
+    "@react-native-async-storage/async-storage": "2.2.0",
+    "@react-navigation/bottom-tabs": "^6.5.0",
+    "@react-navigation/native": "^6.1.0",
+    "@react-navigation/native-stack": "^6.9.0",
+    "axios": "^1.6.0",
+    "babel-preset-expo": "~54.0.10",
+    "expo": "^54.0.0",
+    "expo-av": "~16.0.8",
+    "expo-constants": "~18.0.13",
+    "expo-dev-client": "~6.0.20",
+    "expo-document-picker": "~14.0.8",
+    "expo-file-system": "~19.0.21",
+    "expo-linear-gradient": "~15.0.8",
+    "expo-updates": "~29.0.16",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-native": "0.81.5",
+    "react-native-gesture-handler": "~2.28.0",
+    "react-native-reanimated": "~4.1.1",
+    "react-native-safe-area-context": "~5.6.0",
+    "react-native-screens": "~4.16.0",
+    "react-native-web": "^0.21.0",
+    "zustand": "^4.4.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.0",
+    "@expo/ngrok": "^4.1.3",
+    "@react-native-community/cli": "latest",
+    "eas-cli": "^18.6.0"
+  },
+  "private": true
+}

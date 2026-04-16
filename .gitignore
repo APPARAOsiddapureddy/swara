@@ -1,0 +1,43 @@
+# Root ignores (monorepo)
+.DS_Store
+*.log
+
+# Secrets
+**/.env
+**/.env.*
+
+# Dependencies
+**/node_modules/
+
+# Expo / RN artifacts
+**/.expo/
+**/.expo-shared/
+**/dist/
+**/web-build/
+
+# Android/iOS build artifacts
+**/android/build/
+**/android/.gradle/
+**/android/app/build/
+**/ios/build/
+**/ios/Pods/
+**/*.keystore
+**/*.jks
+**/*.p8
+**/*.p12
+**/*.key
+**/*.mobileprovision
+
+# Backend uploads + local data
+swara-backend/uploads/
+
+# Local test media files (do not commit)
+Mother_Son_Recording.*
+tmp-silence.wav
+*.wav
+*.mp3
+*.m4a
+*.mp4
+*.mov
+*.3gp
+
