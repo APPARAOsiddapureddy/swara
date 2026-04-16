@@ -15,7 +15,6 @@ const sanitizeUser = (user) => ({
   name: user.name,
   phone: user.phone,
   createdAt: user.createdAt,
-  subscriptionTier: user.subscriptionTier || 'free',
 });
 
 const isValidTestOtp = (otp) => String(otp || '') === '0000';
@@ -86,34 +85,6 @@ router.post('/login', async (req, res) => {
   } catch (err) {
     console.error('Login error:', err);
     return res.status(500).json({ error: 'Login failed', message: err.message });
-  }
-});
-
-// POST /api/auth/dev-set-premium — local/dev only: flip user to premium for QA
-router.post('/dev-set-premium', async (req, res) => {
-  if (process.env.NODE_ENV === 'production') {
-    return res.status(404).json({ error: 'Not found' });
-  }
-  try {
-    const token = req.headers.authorization?.replace(/^Bearer\s+/i, '');
-    if (!token) {
-      return res.status(401).json({ error: 'Bearer token required' });
-    }
-    const jwt = require('jsonwebtoken');
-    let decoded;
-    try {
-      decoded = jwt.verify(token, process.env.JWT_SECRET);
-    } catch {
-      return res.status(401).json({ error: 'Invalid token' });
-    }
-    const user = await prisma.user.update({
-      where: { id: decoded.userId },
-      data: { subscriptionTier: 'premium' },
-    });
-    return res.json({ user: sanitizeUser(user), message: 'User set to premium (dev only)' });
-  } catch (err) {
-    console.error('dev-set-premium error:', err);
-    return res.status(500).json({ error: err.message });
   }
 });
 

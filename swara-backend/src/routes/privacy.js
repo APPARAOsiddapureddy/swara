@@ -10,7 +10,7 @@ router.get('/export', async (req, res) => {
     const [user, lovedOnes, conversations, blessings, memorySummaries] = await Promise.all([
       prisma.user.findUnique({
         where: { id: req.user.id },
-        select: { id: true, name: true, phone: true, createdAt: true, subscriptionTier: true },
+        select: { id: true, name: true, phone: true, createdAt: true },
       }),
       prisma.lovedOne.findMany({ where: { userId: req.user.id }, orderBy: { createdAt: 'desc' } }),
       prisma.conversation.findMany({ where: { userId: req.user.id }, orderBy: { createdAt: 'desc' } }),

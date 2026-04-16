@@ -9,6 +9,7 @@ import {
 import { COLORS } from '../utils/constants';
 import { startRecording, stopRecording } from '../utils/audio';
 import useStore from '../store/useStore';
+import { FONTS } from '../utils/typography';
 
 const MicButton = ({ onRecordingComplete, size = 80 }) => {
   const { isRecording, setRecording, isLoading } = useStore();
@@ -188,7 +189,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     color: COLORS.textMuted,
     fontSize: 12,
-    fontFamily: 'System',
+    fontFamily: FONTS.body,
   },
 });
 

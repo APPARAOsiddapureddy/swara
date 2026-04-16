@@ -5,10 +5,22 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { useFonts } from 'expo-font';
+import {
+  Outfit_400Regular,
+  Outfit_500Medium,
+  Outfit_600SemiBold,
+  Outfit_700Bold,
+} from '@expo-google-fonts/outfit';
+import {
+  CormorantGaramond_400Regular_Italic,
+  CormorantGaramond_700Bold,
+} from '@expo-google-fonts/cormorant-garamond';
 
 import { setNavigationRef, setStoreRef } from './src/api/client';
 import useStore from './src/store/useStore';
 import { COLORS } from './src/utils/constants';
+import { FONTS } from './src/utils/typography';
 import Wave from './src/components/ui/Wave';
 import Badge from './src/components/ui/Badge';
 
@@ -110,6 +122,14 @@ export default function App() {
   const { loadPersistedState } = useStore();
   const [isReady, setIsReady] = useState(false);
   const [initialRoute, setInitialRoute] = useState('Onboarding');
+  const [fontsLoaded] = useFonts({
+    Outfit_400Regular,
+    Outfit_500Medium,
+    Outfit_600SemiBold,
+    Outfit_700Bold,
+    CormorantGaramond_400Regular_Italic,
+    CormorantGaramond_700Bold,
+  });
 
   useEffect(() => {
     setStoreRef(store);
@@ -135,7 +155,7 @@ export default function App() {
     bootstrap();
   }, []);
 
-  if (!isReady) return <SplashScreen />;
+  if (!isReady || !fontsLoaded) return <SplashScreen />;
 
   return (
     <GestureHandlerRootView style={styles.root}>
@@ -219,6 +239,7 @@ const styles = StyleSheet.create({
     color: COLORS.text,
     letterSpacing: 14,
     marginTop: 18,
+    fontFamily: FONTS.display,
   },
   splashTelugu: {
     fontSize: 22,
@@ -226,6 +247,7 @@ const styles = StyleSheet.create({
     marginTop: 6,
     fontStyle: 'italic',
     opacity: 0.9,
+    fontFamily: FONTS.displayItalic,
   },
   splashTagline: {
     marginTop: 14,
@@ -233,6 +255,7 @@ const styles = StyleSheet.create({
     color: COLORS.gold,
     fontStyle: 'italic',
     opacity: 0.95,
+    fontFamily: FONTS.displayItalic,
   },
   splashFooter: { alignItems: 'center', gap: 10, paddingBottom: 16 },
   splashFooterText: { color: COLORS.textMuted, fontSize: 12, opacity: 0.85 },
@@ -245,5 +268,5 @@ const styles = StyleSheet.create({
     height: 64,
   },
   tabIcon: { fontSize: 22, marginBottom: 2 },
-  tabLabel: { fontSize: 11, marginTop: 1 },
+  tabLabel: { fontSize: 11, marginTop: 1, fontFamily: FONTS.bodyMedium },
 });

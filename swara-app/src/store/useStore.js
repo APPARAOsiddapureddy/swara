@@ -78,7 +78,7 @@ const useStore = create((set, get) => ({
     set({ currentAudio });
   },
 
-  clearStore: () => {
+  clearStore: async () => {
     set({
       user: null,
       token: null,
@@ -89,7 +89,11 @@ const useStore = create((set, get) => ({
       isLoading: false,
       currentAudio: null,
     });
-    AsyncStorage.multiRemove(['token', 'user', 'lovedOne']).catch(console.error);
+    try {
+      await AsyncStorage.multiRemove(['token', 'user', 'lovedOne']);
+    } catch (e) {
+      console.error(e);
+    }
   },
 
   loadPersistedState: async () => {

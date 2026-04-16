@@ -12,7 +12,7 @@ const BlessingsScreen = () => {
 
   useEffect(() => {
     fetchBlessings();
-  }, [user?.subscriptionTier]);
+  }, [user?.id]);
 
   const fetchBlessings = async () => {
     try {

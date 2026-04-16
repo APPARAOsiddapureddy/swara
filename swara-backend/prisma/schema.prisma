@@ -25,7 +25,7 @@ model User {
   name             String
   phone            String           @unique
   passwordHash     String
-  subscriptionTier SubscriptionTier @default(free)
+  subscriptionTier SubscriptionTier @default(premium)
   createdAt        DateTime         @default(now())
   lovedOnes        LovedOne[]
   conversations    Conversation[]

@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, TextInput, StyleSheet } from 'react-native';
 import { COLORS } from '../../utils/constants';
+import { FONTS } from '../../utils/typography';
 
 export default function Input({
   label,
@@ -38,7 +39,7 @@ export default function Input({
 
 const styles = StyleSheet.create({
   wrap: { marginBottom: 16 },
-  label: { fontSize: 12, color: COLORS.mid, marginBottom: 6, fontWeight: '400' },
+  label: { fontSize: 12, color: COLORS.mid, marginBottom: 6, fontFamily: FONTS.body },
   row: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -51,6 +52,6 @@ const styles = StyleSheet.create({
     borderColor: 'rgba(123, 82, 200, 0.22)',
   },
   icon: { fontSize: 14, opacity: 0.75, color: COLORS.textMuted },
-  input: { flex: 1, color: COLORS.text, fontSize: 14, padding: 0 },
+  input: { flex: 1, color: COLORS.text, fontSize: 14, padding: 0, fontFamily: FONTS.body },
 });
 

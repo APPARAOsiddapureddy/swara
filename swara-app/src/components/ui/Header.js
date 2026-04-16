@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { COLORS } from '../../utils/constants';
+import { FONTS } from '../../utils/typography';
 
 export default function Header({ back, title, right, onBack }) {
   return (
@@ -25,7 +26,7 @@ const styles = StyleSheet.create({
   backBtn: { paddingVertical: 4, paddingHorizontal: 6 },
   backTxt: { color: COLORS.textMuted, fontSize: 18, fontWeight: '300' },
   backSpace: { width: 28 },
-  title: { flex: 1, fontSize: 16, color: COLORS.text, fontWeight: '600' },
+  title: { flex: 1, fontSize: 16, color: COLORS.text, fontFamily: FONTS.bodyMedium },
   right: { minWidth: 28, alignItems: 'flex-end' },
 });
 

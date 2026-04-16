@@ -103,8 +103,6 @@ RULES:
 // POST /api/loved-one/create
 router.post('/create', async (req, res) => {
   try {
-    // Testing phase: no freemium gating. Allow creating multiple loved-one profiles.
-
     const {
       name,
       relation,

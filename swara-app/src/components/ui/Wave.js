@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useRef } from 'react';
 import { View, Animated, StyleSheet, Text } from 'react-native';
 import { COLORS } from '../../utils/constants';
+import { FONTS } from '../../utils/typography';
 
 export default function Wave({ size = 50, anim = false, color = COLORS.accent }) {
   const bars = useMemo(() => [0.3, 0.48, 0.65, 0.82, 1, 0.82, 0.65, 0.48, 0.3], []);
@@ -76,6 +77,7 @@ const styles = StyleSheet.create({
     left: '50%',
     transform: [{ translateX: -6 }],
     color: COLORS.gold,
+    fontFamily: FONTS.body,
   },
 });
 

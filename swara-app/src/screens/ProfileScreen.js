@@ -15,8 +15,8 @@ export default function ProfileScreen({ navigation }) {
       {
         text: 'Sign Out',
         style: 'destructive',
-        onPress: () => {
-          clearStore();
+        onPress: async () => {
+          await clearStore();
           navigation.reset({ index: 0, routes: [{ name: 'Onboarding' }] });
         },
       },

@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { COLORS } from '../../utils/constants';
+import { FONTS } from '../../utils/typography';
 
 export default function Badge({ text, color = COLORS.green, style, textStyle }) {
   return (
@@ -19,7 +20,7 @@ const styles = StyleSheet.create({
   },
   txt: {
     fontSize: 10,
-    fontWeight: '700',
+    fontFamily: FONTS.bodySemiBold,
     letterSpacing: 0.3,
   },
 });

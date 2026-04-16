@@ -15,6 +15,7 @@ import { Audio } from 'expo-av';
 import { COLORS } from '../utils/constants';
 import client from '../api/client';
 import useStore from '../store/useStore';
+import { FONTS } from '../utils/typography';
 
 const VoiceUploadScreen = ({ navigation, route }) => {
   const lovedOneId = route?.params?.lovedOneId;
@@ -203,7 +204,7 @@ const styles = StyleSheet.create({
   backText: {
     color: COLORS.gold,
     fontSize: 16,
-    fontFamily: 'System',
+    fontFamily: FONTS.bodyMedium,
   },
   content: {
     flex: 1,
@@ -212,16 +213,15 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 28,
-    fontWeight: '700',
     color: COLORS.text,
-    fontFamily: 'System',
+    fontFamily: FONTS.display,
   },
   subtitle: {
     fontSize: 14,
     color: COLORS.textMuted,
     marginTop: 2,
     marginBottom: 16,
-    fontFamily: 'System',
+    fontFamily: FONTS.body,
     lineHeight: 22,
   },
   uploadArea: {
@@ -250,13 +250,12 @@ const styles = StyleSheet.create({
   uploadText: {
     color: COLORS.gold,
     fontSize: 16,
-    fontWeight: '500',
-    fontFamily: 'System',
+    fontFamily: FONTS.bodyMedium,
   },
   uploadTextSub: {
     color: COLORS.textMuted,
     fontSize: 13,
-    fontFamily: 'System',
+    fontFamily: FONTS.body,
   },
   fileInfo: {
     alignItems: 'center',
@@ -270,15 +269,14 @@ const styles = StyleSheet.create({
   fileName: {
     color: COLORS.text,
     fontSize: 15,
-    fontWeight: '500',
-    fontFamily: 'System',
+    fontFamily: FONTS.bodyMedium,
     maxWidth: 280,
     textAlign: 'center',
   },
   fileSize: {
     color: COLORS.textMuted,
     fontSize: 12,
-    fontFamily: 'System',
+    fontFamily: FONTS.body,
   },
   previewButton: {
     flexDirection: 'row',
@@ -301,7 +299,7 @@ const styles = StyleSheet.create({
   previewText: {
     color: COLORS.gold,
     fontSize: 14,
-    fontFamily: 'System',
+    fontFamily: FONTS.bodyMedium,
   },
   infoBox: {
     backgroundColor: 'rgba(61, 32, 128, 0.4)',
@@ -315,7 +313,7 @@ const styles = StyleSheet.create({
     color: COLORS.text,
     fontSize: 14,
     lineHeight: 22,
-    fontFamily: 'System',
+    fontFamily: FONTS.body,
   },
   uploadButton: {
     backgroundColor: COLORS.gold,
@@ -331,9 +329,8 @@ const styles = StyleSheet.create({
   uploadButtonText: {
     color: COLORS.background,
     fontSize: 17,
-    fontWeight: '700',
     letterSpacing: 0.5,
-    fontFamily: 'System',
+    fontFamily: FONTS.bodyBold,
   },
 });
 

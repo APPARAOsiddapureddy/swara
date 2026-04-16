@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { COLORS } from '../utils/constants';
+import { FONTS } from '../utils/typography';
 
 const BlessingCard = ({ blessing, lovedOneName, onPlay }) => {
   const formatDate = (dateString) => {
@@ -82,22 +83,20 @@ const styles = StyleSheet.create({
   title: {
     color: COLORS.text,
     fontSize: 15,
-    fontWeight: '600',
+    fontFamily: FONTS.bodySemiBold,
     lineHeight: 22,
-    fontFamily: 'System',
     marginBottom: 4,
   },
   fromLine: {
     color: COLORS.gold,
     fontSize: 12,
-    fontWeight: '600',
+    fontFamily: FONTS.bodySemiBold,
     marginBottom: 4,
-    fontFamily: 'System',
   },
   date: {
     color: COLORS.textMuted,
     fontSize: 12,
-    fontFamily: 'System',
+    fontFamily: FONTS.body,
   },
   playButton: {
     width: 44,

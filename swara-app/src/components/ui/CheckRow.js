@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { COLORS } from '../../utils/constants';
+import { FONTS } from '../../utils/typography';
 
 export default function CheckRow({ checked, label, onToggle }) {
   return (
@@ -27,7 +28,7 @@ const styles = StyleSheet.create({
     flexShrink: 0,
   },
   boxOn: { borderColor: COLORS.gold, backgroundColor: 'rgba(212, 175, 55, 0.12)' },
-  tick: { color: COLORS.gold, fontSize: 11, fontWeight: '800' },
-  label: { flex: 1, fontSize: 12.5, color: 'rgba(245,240,255,0.87)', lineHeight: 20 },
+  tick: { color: COLORS.gold, fontSize: 11, fontFamily: FONTS.bodyBold },
+  label: { flex: 1, fontSize: 12.5, color: 'rgba(245,240,255,0.87)', lineHeight: 20, fontFamily: FONTS.body },
 });
 

@@ -13,6 +13,8 @@
     "eas:apk": "eas build --platform android --profile preview"
   },
   "dependencies": {
+    "@expo-google-fonts/cormorant-garamond": "^0.4.1",
+    "@expo-google-fonts/outfit": "^0.4.3",
     "@expo/metro-runtime": "~6.1.2",
     "@react-native-async-storage/async-storage": "2.2.0",
     "@react-navigation/bottom-tabs": "^6.5.0",
@@ -26,6 +28,7 @@
     "expo-dev-client": "~6.0.20",
     "expo-document-picker": "~14.0.8",
     "expo-file-system": "~19.0.21",
+    "expo-font": "^55.0.6",
     "expo-linear-gradient": "~15.0.8",
     "expo-updates": "~29.0.16",
     "react": "19.1.0",

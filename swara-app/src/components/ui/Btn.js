@@ -2,6 +2,7 @@ import React from 'react';
 import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 import { COLORS } from '../../utils/constants';
 import { LinearGradient } from 'expo-linear-gradient';
+import { FONTS } from '../../utils/typography';
 
 export default function Btn({
   children,
@@ -59,7 +60,7 @@ const styles = StyleSheet.create({
   big: { paddingVertical: 15, paddingHorizontal: 24 },
   small: { paddingVertical: 10, paddingHorizontal: 18 },
   outline: { backgroundColor: 'transparent' },
-  txt: { fontWeight: '700', letterSpacing: 0.3 },
+  txt: { fontFamily: FONTS.bodySemiBold, letterSpacing: 0.3 },
   txtBig: { fontSize: 15 },
   txtSmall: { fontSize: 13 },
   grad: {

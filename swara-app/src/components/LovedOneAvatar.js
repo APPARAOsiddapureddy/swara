@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { View, Text, Animated, StyleSheet } from 'react-native';
 import { COLORS } from '../utils/constants';
+import { FONTS } from '../utils/typography';
 
 const LovedOneAvatar = ({ name = '', isSpeaking = false, size = 100 }) => {
   const scaleAnim = useRef(new Animated.Value(1)).current;
@@ -114,8 +115,7 @@ const styles = StyleSheet.create({
   },
   initial: {
     color: COLORS.text,
-    fontWeight: '700',
-    fontFamily: 'System',
+    fontFamily: FONTS.display,
   },
 });
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { COLORS } from '../utils/constants';
+import { FONTS } from '../utils/typography';
 
 const ConversationBubble = ({ message, isUser = false }) => {
   const formatTime = (timestamp) => {
@@ -66,13 +67,13 @@ const styles = StyleSheet.create({
     color: COLORS.text,
     fontSize: 16,
     lineHeight: 24,
-    fontFamily: 'System',
+    fontFamily: FONTS.body,
   },
   timestamp: {
     fontSize: 11,
     color: COLORS.textMuted,
     marginTop: 3,
-    fontFamily: 'System',
+    fontFamily: FONTS.body,
   },
   aiTimestamp: {
     marginLeft: 4,

@@ -46,9 +46,6 @@ const upload = multer({
   },
 });
 
-// Testing phase: treat all users as premium (no paywalls / feature gating).
-const isPremium = () => true;
-
 // POST /api/conversation/send
 router.post('/send', upload.single('audio'), async (req, res) => {
   try {
@@ -173,7 +170,6 @@ router.post('/send', upload.single('audio'), async (req, res) => {
       audioUrl,
       isConfidence,
       conversationId: conversation.id,
-      subscriptionTier: req.user.subscriptionTier,
     });
   } catch (err) {
     console.error('Conversation send error:', err);
@@ -211,7 +207,6 @@ router.get('/history/:lovedOneId', async (req, res) => {
 
     return res.json({
       conversations,
-      subscriptionTier: req.user.subscriptionTier,
       pagination: {
         page,
         limit,

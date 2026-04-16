@@ -17,6 +17,7 @@ import client from '../api/client';
 import { uploadAudio, playAudio } from '../utils/audio';
 import MicButton from '../components/MicButton';
 import LovedOneAvatar from '../components/LovedOneAvatar';
+import { FONTS } from '../utils/typography';
 
 const ConfidenceModeScreen = ({ navigation }) => {
   const { lovedOne, addBlessing, setLoading, isLoading } = useStore();
@@ -223,7 +224,7 @@ const styles = StyleSheet.create({
   backText: {
     color: COLORS.gold,
     fontSize: 16,
-    fontFamily: 'System',
+    fontFamily: FONTS.bodyMedium,
   },
   headerCenter: {
     flex: 1,
@@ -231,15 +232,14 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
-    fontWeight: '700',
     color: COLORS.gold,
-    fontFamily: 'System',
+    fontFamily: FONTS.display,
   },
   subtitle: {
     fontSize: 13,
     color: COLORS.textMuted,
     marginTop: 2,
-    fontFamily: 'System',
+    fontFamily: FONTS.body,
   },
   scrollContent: {
     paddingHorizontal: 24,
@@ -251,10 +251,9 @@ const styles = StyleSheet.create({
   },
   lovedOneName: {
     fontSize: 22,
-    fontWeight: '700',
     color: COLORS.text,
     marginTop: 14,
-    fontFamily: 'System',
+    fontFamily: FONTS.display,
   },
   instructionBox: {
     backgroundColor: 'rgba(61, 32, 128, 0.4)',
@@ -270,7 +269,7 @@ const styles = StyleSheet.create({
     color: COLORS.text,
     textAlign: 'center',
     lineHeight: 26,
-    fontFamily: 'System',
+    fontFamily: FONTS.body,
   },
   micSection: {
     alignItems: 'center',
@@ -285,7 +284,7 @@ const styles = StyleSheet.create({
   loadingText: {
     color: COLORS.textMuted,
     fontSize: 14,
-    fontFamily: 'System',
+    fontFamily: FONTS.body,
   },
   blessingContainer: {
     backgroundColor: COLORS.card,
@@ -308,15 +307,14 @@ const styles = StyleSheet.create({
   blessingHeaderText: {
     color: COLORS.gold,
     fontSize: 14,
-    fontWeight: '600',
     letterSpacing: 1,
-    fontFamily: 'System',
+    fontFamily: FONTS.bodySemiBold,
   },
   blessingText: {
     fontSize: 18,
     color: COLORS.text,
     lineHeight: 30,
-    fontFamily: 'System',
+    fontFamily: FONTS.body,
     marginBottom: 20,
   },
   blessingTextItalic: { fontStyle: 'italic' },
@@ -338,8 +336,7 @@ const styles = StyleSheet.create({
   outlineButtonText: {
     color: COLORS.gold,
     fontSize: 14,
-    fontWeight: '700',
-    fontFamily: 'System',
+    fontFamily: FONTS.bodyBold,
   },
   saveButton: {
     flex: 1,
@@ -358,8 +355,7 @@ const styles = StyleSheet.create({
   saveButtonText: {
     color: COLORS.background,
     fontSize: 15,
-    fontWeight: '700',
-    fontFamily: 'System',
+    fontFamily: FONTS.bodyBold,
   },
 });
 

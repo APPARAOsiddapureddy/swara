@@ -6,9 +6,6 @@ const { uploadFile } = require('../services/storage');
 const router = express.Router();
 const prisma = new PrismaClient();
 
-// Testing phase: treat all users as premium (no paywalls / feature gating).
-const isPremium = () => true;
-
 // POST /api/blessing/save
 router.post('/save', async (req, res) => {
   try {
@@ -103,7 +100,7 @@ router.get('/list', async (req, res) => {
   }
 });
 
-// GET /api/blessing/:id/export — premium; PRD: watermarked export (MVP: same file + disclosure headers / metadata)
+// GET /api/blessing/:id/export — returns audio + disclosure metadata (MVP)
 router.get('/:id/export', async (req, res) => {
   try {
     // No gating: everyone can export.
